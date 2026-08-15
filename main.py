@@ -20,14 +20,16 @@ def main():
     #     C[1:-1] += r * (C[2:] - 2*C[1:-1] + C[:-2])
     #     C[0] = 80 
 
-    # Activity 2: Deep Dish Pizza Baking Simulator
+    # Activity 2/3: Deep Dish Pizza Baking Simulator
 
     oven_temp = 180.0
     initial_temp = 20.0
     total_time = 10
     time_step = 2
+    size = 10
+    sampling = 6
     
-    space_grid = np.linspace(0, 10, 6)
+    space_grid = np.linspace(0, size, sampling)
     time_steps = np.arange(0, total_time + 1, time_step)
     
     temp_matrix = np.full((len(time_steps), len(space_grid)), initial_temp)
@@ -49,7 +51,7 @@ def main():
     print(f"Average Temp at Minute {time_steps[-1]} : {np.mean(temp_matrix[-1]):.2f} °C")
     
     burn_zones = np.where(temp_matrix[:, 1:] > 75.0)
-    print(f"\nBurning Threshold Breached (>75°C) at coordinates:")
+    print(f"\nBurning Threshold Breached at coordinates:")
     for r, c in zip(burn_zones[0], burn_zones[1]):
         print(f"  Minute {time_steps[r]} | {space_grid[c+1]:.0f}-inch | {temp_matrix[r, c+1]:.2f} °C")
     
