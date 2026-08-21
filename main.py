@@ -153,6 +153,9 @@ def activity_4():
     return temp_matrix
 
 def activity_5():
+    """
+    Activity 5: Simulates fuel consumption for a delivery service.
+    """
     warehouse = [0, 0]
     locations = [[2,3], [4,2], [5,5], [7,5], [8,8]]
     fuel_consumed = np.array([0.6, 0.8, 1.2, 1.5, 2.0])
